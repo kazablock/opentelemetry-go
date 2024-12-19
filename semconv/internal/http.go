@@ -303,10 +303,10 @@ func SpanStatusFromHTTPStatusCodeAndSpanKind(code int, spanKind trace.SpanKind) 
 	if !valid {
 		return spanCode, fmt.Sprintf("Invalid HTTP status code %d", code)
 	}
-	category := code / 100
-	if spanKind == trace.SpanKindServer && category == 4 {
-		return codes.Unset, ""
-	}
+	//category := code / 100
+	//if spanKind == trace.SpanKindServer && category == 4 {
+	//	return codes.Error, ""
+	//}
 	return spanCode, ""
 }
 
