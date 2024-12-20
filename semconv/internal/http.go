@@ -299,6 +299,7 @@ func SpanStatusFromHTTPStatusCode(code int) (codes.Code, string) {
 // as specified by the OpenTelemetry specification for a span.
 // Exclude 4xx for SERVER to set the appropriate status.
 func SpanStatusFromHTTPStatusCodeAndSpanKind(code int, spanKind trace.SpanKind) (codes.Code, string) {
+	fmt.Println("hi from SpanStatusFromHTTPStatusCodeAndSpanKind Outside")
 	spanCode, valid := validateHTTPStatusCode(code)
 	if !valid {
 		return spanCode, fmt.Sprintf("Invalid HTTP status code %d", code)
