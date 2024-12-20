@@ -29,7 +29,7 @@ const (
 	// or Operator to have completed successfully, or contain no error.
 	Ok Code = 2
 
-	maxCode = 3
+	MaxCode = 3
 )
 
 // Code is an 32-bit representation of a status state.
@@ -80,7 +80,7 @@ func (c *Code) UnmarshalJSON(b []byte) error {
 		return fmt.Errorf("invalid code: %q", string(b))
 	case float64:
 		if ci, err := strconv.ParseUint(string(b), 10, 32); err == nil {
-			if ci >= maxCode {
+			if ci >= MaxCode {
 				return fmt.Errorf("invalid code: %q", ci)
 			}
 

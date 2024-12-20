@@ -70,7 +70,7 @@ func TestCodeUnmarshalJSON(t *testing.T) {
 	}
 	for _, test := range tests {
 		c := new(Code)
-		*c = Code(maxCode)
+		*c = Code(MaxCode)
 
 		if err := json.Unmarshal([]byte(test.input), c); err != nil {
 			t.Fatalf("json.Unmarshal(%q, Code) errored: %v", test.input, err)
@@ -83,7 +83,7 @@ func TestCodeUnmarshalJSON(t *testing.T) {
 
 func TestCodeUnmarshalJSONErrorInvalidData(t *testing.T) {
 	tests := []string{
-		fmt.Sprintf("%d", maxCode),
+		fmt.Sprintf("%d", MaxCode),
 		"Not a code",
 		"Unset",
 		"true",
@@ -132,11 +132,11 @@ func TestCodeMarshalJSON(t *testing.T) {
 
 func TestCodeMarshalJSONErrorInvalid(t *testing.T) {
 	c := new(Code)
-	*c = Code(maxCode)
+	*c = Code(MaxCode)
 	if b, err := c.MarshalJSON(); err == nil {
-		t.Fatalf("Code(maxCode).MarshalJSON() did not error")
+		t.Fatalf("Code(MaxCode).MarshalJSON() did not error")
 	} else if b != nil {
-		t.Fatal("Code(maxCode).MarshalJSON() returned non-nil value")
+		t.Fatal("Code(MaxCode).MarshalJSON() returned non-nil value")
 	}
 }
 

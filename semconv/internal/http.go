@@ -307,7 +307,7 @@ func SpanStatusFromHTTPStatusCodeAndSpanKind(code int, spanKind trace.SpanKind) 
 	category := code / 100
 	if spanKind == trace.SpanKindServer && category == 4 {
 		fmt.Println("hi from SpanStatusFromHTTPStatusCodeAndSpanKind")
-		return codes.Error, ""
+		return codes.MaxCode, ""
 	}
 	return spanCode, ""
 }
